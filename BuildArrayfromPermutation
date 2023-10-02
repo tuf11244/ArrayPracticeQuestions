@@ -1,0 +1,30 @@
+//https://leetcode.com/problems/build-array-from-permutation/
+import java.util.Arrays;
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		int[] nums = {5,0,1,2,3,4};
+		int[] answer = buildArray(nums);
+		System.out.println(Arrays.toString(answer));
+	}
+	public static int[] buildArray(int[] nums){
+	    int[] answer = new int[nums.length];
+	    for(int i = 0; i < answer.length;i++){
+	       answer[i] = nums[nums[i]];
+	    }
+	    return answer;
+	}
+	
+	//O(1) solution - no extra space
+	public static void buildArray(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = nums[i] + (nums[nums[i]] % n) * n;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = nums[i] / n;
+        }
+    }
+}
