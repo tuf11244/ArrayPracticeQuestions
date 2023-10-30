@@ -1,0 +1,27 @@
+import java.util.Arrays;
+//https://leetcode.com/problems/find-the-highest-altitude/
+//Date: 10/30/2023
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		int[] arr = {-5,1,5,0,-7};
+		largestAltitude(arr);
+	}
+	public static void largestAltitude(int[] arr){
+	    int[] gain = new int[arr.length + 1];
+	    gain[0] = 0;
+	    for(int i = 1; i < gain.length;i++){
+	        gain[i] = gain[i-1] + arr[i-1];
+	    }
+	    System.out.println(Arrays.toString(gain));
+	    
+	    int max = Integer.MIN_VALUE;
+	    
+	    for(int altitude : gain){
+	        max = Math.max(altitude,max);
+	    }
+	    System.out.println(max);
+	    
+	}
+}
