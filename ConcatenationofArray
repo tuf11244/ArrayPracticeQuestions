@@ -1,0 +1,25 @@
+//https://leetcode.com/problems/concatenation-of-array/
+import java.util.Arrays;
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		int[] nums = {1,2,1};
+		System.out.println(Arrays.toString(getConcatenation(nums)));
+	}
+	public static int[] getConcatenation(int[] nums){
+	    int[] answer = new int[nums.length*2];
+	    int i = 0;
+	    int j = 0;
+	    while(i < nums.length){
+	        answer[i]= nums[i];
+	        i++;
+	    }
+	    j = i;
+	    for(int k = 0; k < nums.length;k++){
+	        answer[j] = nums[k];
+	        j++;
+	    }
+	    return answer;
+	}
+}
